@@ -1,11 +1,13 @@
-
-function sayGoodbye() {
-    console.log("Goodbye");
+function saveTask(){
+    console.log("saving task");
 }
 
-function sayHello() {
-    console.log("Hello");
-    sayGoodbye();
+function init() {
+    console.log("task manager");
+    //load data
+
+    //hook the events
+    $("#btnSave").onClick(saveTask);
 }
 
-window.onload = sayHello;
+window.onload = init;
