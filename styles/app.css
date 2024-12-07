@@ -17,3 +17,11 @@ body {
 .hexagon-bg {
     background: repeating-linear-gradient(45deg, #FFD580, #FFD580 10px, #FFC04D 10px, #FFC04D 20px);
 }
+
+.list {
+    flex: 3;
+    background-color: lightskyblue;
+    background-image: 
+    -o-linear-gradient(to right, black);
+    -o-linear-gradient(to bottom, black);
+}
