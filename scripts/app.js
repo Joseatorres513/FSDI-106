@@ -69,6 +69,12 @@ $.ajax({
         success: function(response) {
             console.log(response);
             let data = JSON.parse(response);
+            for(let i= 0; i<data.length;i++){
+                let task = data[i];
+                if (task.name === "Jose513") {
+                    displayTask(task);
+                }
+            }
             console.log(data);
         },
         error: function(error) {
@@ -76,6 +82,12 @@ $.ajax({
         }
 })
 }
+
+// from the object returned get only messages that were created by you.
+//tip 1. Modify the class to include your user.
+//tip 2. use a for loop
+//tip3. then an if statement
+
 function init() {
     console.log("task manager");
 
