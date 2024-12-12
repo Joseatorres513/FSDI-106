@@ -6,7 +6,7 @@ function saveTask()
     const title = $("#txtTitle").val();
     const desc = $("#txtDescription").val();
     const color = $("#selColor").val();
-    const date = $("#selDate").val();
+    const date = $("#startDate").val();
     const status = $("#selStatus").val();
     const budget = $("#numBudget").val();
     console.log(title,desc,color,date,status,budget);
@@ -36,7 +36,7 @@ function displayTask(task)
     console.log(task)
     let syntax = `<div class="task">
         <h5>${task.title}</h5>
-        <p>${task.desc}</p>
+        <p>${task.description}</p>
         </div>
         <div><label>${task.status}</label></div>
         <div><label>${task.date}</label></div>
@@ -88,6 +88,22 @@ $.ajax({
 //tip 2. use a for loop
 //tip3. then an if statement
 
+
+function deleteAllTasks(){
+    $.ajax({
+        type: "DELETE",
+        url: "http://fsdiapi.azurewebsites.net/api/tasks",
+        success: function(response){
+            console.log("Tasks deleted successfully");
+            $(".list-class").html("");
+        },
+        error: function(error){
+            console.log("Error deleting tasks",error);
+        }
+    });
+}
+
+
 function init() {
     console.log("task manager");
 
@@ -96,6 +112,7 @@ function init() {
 
     //hook the events
     $("#btnSave").click(saveTask);
+    $("#btnDeleteAll").click(deleteAllTasks);
 }
 
 window.onload = init;
